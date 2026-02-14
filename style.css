@@ -58,7 +58,9 @@ body::before {
   align-items: center;
   text-align: center;
   position: relative;
-  overflow: hidden;
+
+  /* IMPORTANT: Allow glow to render */
+  overflow: visible;
 }
 
 .logo-container {
@@ -74,6 +76,10 @@ body::before {
   transform: translateX(-50%);
   width: 700px;
   z-index: 1;
+
+  /* Apply glow to whole SVG (better for Safari) */
+  filter: drop-shadow(0 0 35px #ff0000);
+  -webkit-filter: drop-shadow(0 0 35px #ff0000);
 }
 
 /* Dragon Base Look */
@@ -86,7 +92,6 @@ body::before {
 .tail,
 .horn {
   fill: #1c1b1b;
-  filter: drop-shadow(0 0 25px #ff0000);
 }
 
 /* Wing Animation */
@@ -119,16 +124,18 @@ body::before {
   fill: url(#fireGradient);
   transform-origin: left center;
   animation: flameFlicker 2s infinite alternate;
+
+  /* Extra glow for flame */
+  filter: drop-shadow(0 0 30px #ff4500);
+  -webkit-filter: drop-shadow(0 0 30px #ff4500);
 }
 
 @keyframes flameFlicker {
   0% {
     transform: scaleX(1);
-    filter: drop-shadow(0 0 30px #ff4500);
   }
   100% {
     transform: scaleX(1.15);
-    filter: drop-shadow(0 0 40px #ff0000);
   }
 }
 
@@ -378,6 +385,7 @@ footer {
 html {
   scroll-behavior: smooth;
 }
+
 
 
 
