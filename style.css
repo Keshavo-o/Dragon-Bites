@@ -48,6 +48,7 @@ body::before {
 }
 
 /* HERO */
+/* HERO */
 
 .hero {
   height: 100vh;
@@ -111,121 +112,6 @@ body::before {
   50% { transform: rotate(6deg); }
   100% { transform: rotate(0deg); }
 }
-
-/* Flame */
-
-.flame {
-  fill: url(#fireGradient);
-  transform-origin: left center;
-  animation: flameFlicker 2s infinite alternate;
-}
-
-@keyframes flameFlicker {
-  0% {
-    transform: scaleX(1);
-    filter: drop-shadow(0 0 30px #ff4500);
-  }
-  100% {
-    transform: scaleX(1.15);
-    filter: drop-shadow(0 0 40px #ff0000);
-  }
-}
-/* HERO */
-/* ================= HERO ================= */
-/* ================= DRAGON BASE ================= */
-
-.wing-left,
-.wing-right,
-.dragon-body,
-.neck,
-.dragon-head,
-.tail,
-.horn {
-  fill: #000000;
-  stroke: #ff2a00;
-  stroke-width: 3;
-  paint-order: stroke;
-}
-
-/* ================= WINGS ================= */
-
-.wing-left,
-.wing-right,
-.tail {
-  transform-box: fill-box;   /* VERY IMPORTANT for Safari */
-}
-
-/* Left Wing */
-
-.wing-left {
-  transform-origin: center;
-  animation: flapLeft 4s ease-in-out infinite;
-}
-
-/* Right Wing */
-
-.wing-right {
-  transform-origin: center;
-  animation: flapRight 4s ease-in-out infinite;
-}
-
-/* Tail */
-
-.tail {
-  transform-origin: center;
-  animation: tailWave 4s ease-in-out infinite;
-}
-
-@keyframes flapLeft {
-  0% { transform: rotate(0deg); }
-  50% { transform: rotate(-6deg); }
-  100% { transform: rotate(0deg); }
-}
-
-@keyframes flapRight {
-  0% { transform: rotate(0deg); }
-  50% { transform: rotate(6deg); }
-  100% { transform: rotate(0deg); }
-}
-
-@keyframes tailWave {
-  0% { transform: rotate(0deg); }
-  50% { transform: rotate(4deg); }
-  100% { transform: rotate(0deg); }
-}
-
-
-/* ================= FLAME ================= */
-
-.flame {
-  fill: url(#fireGradient);
-  transform-box: fill-box;
-  transform-origin: left center;
-  animation: flameFlicker 1.5s infinite alternate ease-in-out;
-}
-
-@keyframes flameFlicker {
-  0% { transform: scaleX(1); }
-  100% { transform: scaleX(1.2); }
-}
-
-/* ================= FLAME ================= */
-
-.flame {
-  fill: url(#fireGradient);
-  transform-origin: left center;
-  animation: flameFlicker 2s infinite alternate;
-}
-
-@keyframes flameFlicker {
-  0% {
-    transform: scaleX(1);
-  }
-  100% {
-    transform: scaleX(1.15);
-  }
-}
-
 
 /* Flame */
 
@@ -479,7 +365,7 @@ footer {
 
 
 .stall-location {
-    padding: 5% 20px;
+    padding: 50px 20px;
     text-align: center;
     font-size: 18px;
 }
@@ -489,7 +375,9 @@ footer {
     font-weight: 700;
 }
 
-
+html {
+  scroll-behavior: smooth;
+}
 
 
 
