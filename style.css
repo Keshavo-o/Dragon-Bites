@@ -50,35 +50,6 @@ body::before {
 /* HERO */
 /* HERO */
 /* ================= HERO ================= */
-
-.hero {
-  height: 100vh;
-  background: radial-gradient(circle at center, #200000 0%, #000000 75%);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  position: relative;
-  overflow: visible;
-}
-
-.logo-container {
-  position: relative;
-}
-
-/* ================= DRAGON SVG ================= */
-
-.dragon-svg {
-  position: absolute;
-  top: -150px;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 700px;
-  max-width: 90vw;
-  height: auto;
-  z-index: 1;
-}
-
 /* ================= DRAGON BASE ================= */
 
 .wing-left,
@@ -94,47 +65,53 @@ body::before {
   paint-order: stroke;
 }
 
-/* IMPORTANT FOR SVG ROTATION (Safari Fix) */
+/* ================= WINGS ================= */
+
 .wing-left,
 .wing-right,
 .tail {
-  transform-box: fill-box;
-  transform-origin: center;
+  transform-box: fill-box;   /* VERY IMPORTANT for Safari */
 }
 
-/* ================= WING ANIMATION ================= */
+/* Left Wing */
 
 .wing-left {
-  animation: flapLeft 3s ease-in-out infinite;
+  transform-origin: center;
+  animation: flapLeft 4s ease-in-out infinite;
 }
 
+/* Right Wing */
+
 .wing-right {
-  animation: flapRight 3s ease-in-out infinite;
+  transform-origin: center;
+  animation: flapRight 4s ease-in-out infinite;
+}
+
+/* Tail */
+
+.tail {
+  transform-origin: center;
+  animation: tailWave 4s ease-in-out infinite;
 }
 
 @keyframes flapLeft {
   0% { transform: rotate(0deg); }
-  50% { transform: rotate(-10deg); }
+  50% { transform: rotate(-6deg); }
   100% { transform: rotate(0deg); }
 }
 
 @keyframes flapRight {
   0% { transform: rotate(0deg); }
-  50% { transform: rotate(10deg); }
+  50% { transform: rotate(6deg); }
   100% { transform: rotate(0deg); }
-}
-
-/* ================= TAIL ANIMATION ================= */
-
-.tail {
-  animation: tailWave 3s ease-in-out infinite;
 }
 
 @keyframes tailWave {
   0% { transform: rotate(0deg); }
-  50% { transform: rotate(8deg); }
+  50% { transform: rotate(4deg); }
   100% { transform: rotate(0deg); }
 }
+
 
 /* ================= FLAME ================= */
 
@@ -429,6 +406,7 @@ footer {
     color: #ff4500;
     font-weight: 700;
 }
+
 
 
 
