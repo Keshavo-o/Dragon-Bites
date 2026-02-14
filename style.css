@@ -49,6 +49,7 @@ body::before {
 
 /* HERO */
 /* HERO */
+/* ================= HERO ================= */
 
 .hero {
   height: 100vh;
@@ -65,18 +66,17 @@ body::before {
   position: relative;
 }
 
-/* DRAGON SVG */
+/* ================= DRAGON SVG ================= */
 
 .dragon-svg {
   position: absolute;
   top: -150px;
   left: 50%;
-  transform: translateX(-50%) translateZ(0);
+  transform: translateX(-50%);
   width: 700px;
   max-width: 90vw;
   height: auto;
   z-index: 1;
-  will-change: transform;
 }
 
 /* ================= DRAGON BASE ================= */
@@ -94,41 +94,60 @@ body::before {
   paint-order: stroke;
 }
 
+/* IMPORTANT FOR SVG ROTATION (Safari Fix) */
+.wing-left,
+.wing-right,
+.tail {
+  transform-box: fill-box;
+  transform-origin: center;
+}
+
 /* ================= WING ANIMATION ================= */
 
 .wing-left {
-  transform-origin: 380px 250px;
-  animation: flapLeft 4s ease-in-out infinite;
+  animation: flapLeft 3s ease-in-out infinite;
 }
 
 .wing-right {
-  transform-origin: 520px 250px;
-  animation: flapRight 4s ease-in-out infinite;
+  animation: flapRight 3s ease-in-out infinite;
 }
 
 @keyframes flapLeft {
   0% { transform: rotate(0deg); }
-  50% { transform: rotate(-6deg); }
+  50% { transform: rotate(-10deg); }
   100% { transform: rotate(0deg); }
 }
 
 @keyframes flapRight {
   0% { transform: rotate(0deg); }
-  50% { transform: rotate(6deg); }
+  50% { transform: rotate(10deg); }
   100% { transform: rotate(0deg); }
 }
 
 /* ================= TAIL ANIMATION ================= */
 
 .tail {
-  transform-origin: 400px 300px;
-  animation: tailWave 4s ease-in-out infinite;
+  animation: tailWave 3s ease-in-out infinite;
 }
 
 @keyframes tailWave {
   0% { transform: rotate(0deg); }
-  50% { transform: rotate(4deg); }
+  50% { transform: rotate(8deg); }
   100% { transform: rotate(0deg); }
+}
+
+/* ================= FLAME ================= */
+
+.flame {
+  fill: url(#fireGradient);
+  transform-box: fill-box;
+  transform-origin: left center;
+  animation: flameFlicker 1.5s infinite alternate ease-in-out;
+}
+
+@keyframes flameFlicker {
+  0% { transform: scaleX(1); }
+  100% { transform: scaleX(1.2); }
 }
 
 /* ================= FLAME ================= */
@@ -410,6 +429,7 @@ footer {
     color: #ff4500;
     font-weight: 700;
 }
+
 
 
 
