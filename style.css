@@ -1,0 +1,376 @@
+body {
+    margin: 0;
+    font-family: 'Orbitron', sans-serif;
+    background: #000;
+    color: white;
+    overflow-x: hidden;
+}
+
+/* INFERNO LAYER */
+body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    background:
+        radial-gradient(circle at 50% 120%, rgba(255,40,0,0.35), transparent 60%),
+        radial-gradient(circle at 20% 110%, rgba(255,0,0,0.25), transparent 55%),
+        radial-gradient(circle at 80% 115%, rgba(255,120,0,0.25), transparent 55%);
+    animation: heatFlow 8s ease-in-out infinite alternate;
+    z-index: -2;
+    pointer-events: none;
+}
+
+@keyframes heatFlow {
+    0% {
+        transform: scale(1) translateY(0);
+    }
+    100% {
+        transform: scale(1.1) translateY(-40px);
+    }
+}
+
+
+
+
+
+
+/* LIVE BADGE */
+.live-badge {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    background: red;
+    padding: 8px 15px;
+    border-radius: 20px;
+    font-weight: bold;
+    box-shadow: 0 0 20px red;
+    z-index: 1000;
+}
+
+/* HERO */
+/* HERO */
+
+.hero {
+  height: 100vh;
+  background: radial-gradient(circle at center, #200000 0%, #000000 75%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.logo-container {
+  position: relative;
+}
+
+/* DRAGON SVG */
+
+.dragon-svg {
+  position: absolute;
+  top: -150px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 700px;
+  z-index: 1;
+}
+
+/* Dragon Base Look */
+
+.wing-left,
+.wing-right,
+.dragon-body,
+.neck,
+.dragon-head,
+.tail,
+.horn {
+  fill: #111;
+  filter: drop-shadow(0 0 25px #ff0000);
+}
+
+/* Wing Animation */
+
+.wing-left {
+  transform-origin: 380px 250px;
+  animation: flapLeft 4s ease-in-out infinite;
+}
+
+.wing-right {
+  transform-origin: 520px 250px;
+  animation: flapRight 4s ease-in-out infinite;
+}
+
+@keyframes flapLeft {
+  0% { transform: rotate(0deg); }
+  50% { transform: rotate(-6deg); }
+  100% { transform: rotate(0deg); }
+}
+
+@keyframes flapRight {
+  0% { transform: rotate(0deg); }
+  50% { transform: rotate(6deg); }
+  100% { transform: rotate(0deg); }
+}
+
+/* Flame */
+
+.flame {
+  fill: url(#fireGradient);
+  transform-origin: left center;
+  animation: flameFlicker 2s infinite alternate;
+}
+
+@keyframes flameFlicker {
+  0% {
+    transform: scaleX(1);
+    filter: drop-shadow(0 0 30px #ff4500);
+  }
+  100% {
+    transform: scaleX(1.15);
+    filter: drop-shadow(0 0 40px #ff0000);
+  }
+}
+
+/* TEXT */
+
+.brand-title {
+  font-size: 4rem;
+  color: #ff2e00;
+  text-shadow: 0 0 25px #ff0000, 0 0 60px #ff4500;
+  position: relative;
+  z-index: 2;
+  animation: textGlow 2s infinite alternate;
+}
+
+@keyframes textGlow {
+  0% { text-shadow: 0 0 25px #ff0000; }
+  100% { text-shadow: 0 0 60px #ff4500; }
+}
+
+.tagline {
+  margin-top: 10px;
+  color: #ffa500;
+  font-size: 1.2rem;
+}
+
+.cta-btn {
+  margin-top: 30px;
+  padding: 15px 40px;
+  border: none;
+  background: linear-gradient(45deg, #ff0000, #ff6a00);
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+  border-radius: 50px;
+  box-shadow: 0 0 20px #ff4500;
+  transition: 0.3s ease;
+}
+
+.cta-btn:hover {
+  transform: scale(1.08);
+  box-shadow: 0 0 45px #ff0000;
+}
+
+/* Responsive */
+
+@media (max-width: 1024px) {
+  .dragon-svg {
+    width: 500px;
+    top: -120px;
+  }
+}
+
+@media (max-width: 768px) {
+  .dragon-svg {
+    width: 320px;
+    top: -80px;
+  }
+
+  .brand-title {
+    font-size: 2.3rem;
+  }
+}
+
+
+.hero h1 {
+    font-size: 4rem;
+    color: #ff2e00;
+    text-shadow: 0 0 20px #ff0000;
+}
+
+.hero p {
+    color: #ffa500;
+}
+
+.cta-btn {
+    margin-top: 20px;
+    padding: 15px 30px;
+    background: linear-gradient(45deg, red, orange);
+    border: none;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+    color: white;
+    box-shadow: 0 0 20px orange;
+    transition: 0.3s;
+}
+
+.cta-btn:hover {
+    transform: scale(1.1);
+}
+
+/* DRAGON ANIMATION */
+.dragon {
+    position: absolute;
+    width: 300px;
+    height: 200px;
+    background: url('https://i.imgur.com/dragon.png') no-repeat center/contain;
+    animation: fly 8s linear infinite;
+}
+
+@keyframes fly {
+    0% { left: -300px; top: 100px; }
+    50% { left: 50%; top: 200px; }
+    100% { left: 110%; top: 100px; }
+}
+
+/* MENU */
+.menu, .combo, .about, .stats {
+    padding: 60px 20px;
+    text-align: center;
+}
+
+.menu-grid, .stats-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+}
+
+.card {
+    background: #111;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 0 20px rgba(255, 0, 0, 0.4);
+    transition: 0.3s;
+}
+
+.card:hover {
+    transform: translateY(-10px);
+}
+
+.highlight {
+    background: linear-gradient(45deg, #330000, #ff0000);
+}
+
+/* STATS */
+.stats h3 {
+    font-size: 2rem;
+    color: #ff2e00;
+}
+
+/* FOOTER */
+footer {
+    padding: 20px;
+    background: #000;
+    text-align: center;
+}
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+    .hero h1 {
+        font-size: 2.5rem;
+    }
+}
+
+
+
+
+/* fireee back 
+ */
+
+ 
+ .embers {
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: -1;
+}
+
+.embers::before {
+    content: "";
+    position: absolute;
+    width: 3px;
+    height: 3px;
+    background: orange;
+    box-shadow:
+        100px 800px #ff4500,
+        300px 900px #ff0000,
+        600px 850px #ffaa00,
+        900px 950px #ff3300,
+        1200px 870px #ff6600,
+        1500px 920px #ff2200;
+    animation: rise 6s linear infinite;
+}
+
+@keyframes rise {
+    from {
+        transform: translateY(0);
+        opacity: 1;
+    }
+    to {
+        transform: translateY(-1000px);
+        opacity: 0;
+    }
+}
+
+
+.about,
+.menu,
+.combo,
+.stats,
+footer {
+    padding: 120px 20px;
+    position: relative;
+}
+
+/* Add black separation space between sections */
+.about::after,
+.menu::after,
+.combo::after,
+.stats::after {
+    content: "";
+    position: absolute;
+    bottom: -40px;
+    left: 0;
+    width: 100%;
+    height: 40px;
+    background: linear-gradient(to bottom, rgba(0,0,0,0), #000);
+}
+
+
+
+.hype {
+    margin-top: 40px;
+    font-size: 20px;
+    color: #ff4500;
+    text-align: center;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    font-weight: 700;
+    text-shadow: 0 0 10px rgba(255, 60, 0, 0.7);
+}
+
+
+
+
+.stall-location {
+    padding: 5% 20px;
+    text-align: center;
+    font-size: 18px;
+}
+
+.stall-location strong {
+    color: #ff4500;
+    font-weight: 700;
+}
