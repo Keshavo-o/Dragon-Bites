@@ -58,7 +58,7 @@ body::before {
   align-items: center;
   text-align: center;
   position: relative;
-  overflow: visible; /* changed from hidden */
+  overflow: hidden;
 }
 
 .logo-container {
@@ -73,7 +73,6 @@ body::before {
   left: 50%;
   transform: translateX(-50%);
   width: 700px;
-  max-width: 90vw;
   z-index: 1;
 }
 
@@ -88,41 +87,27 @@ body::before {
 .horn {
   fill: #1c1b1b;
   filter: drop-shadow(0 0 25px #ff0000);
-
-  /* IMPORTANT for SVG animation */
-  transform-box: fill-box;
-  transform-origin: center;
 }
 
 /* Wing Animation */
 
 .wing-left {
+  transform-origin: 380px 250px;
   animation: flapLeft 4s ease-in-out infinite;
 }
 
 .wing-right {
+  transform-origin: 520px 250px;
   animation: flapRight 4s ease-in-out infinite;
 }
 
 @keyframes flapLeft {
   0% { transform: rotate(0deg); }
-  50% { transform: rotate(-8deg); }
+  50% { transform: rotate(-6deg); }
   100% { transform: rotate(0deg); }
 }
 
 @keyframes flapRight {
-  0% { transform: rotate(0deg); }
-  50% { transform: rotate(8deg); }
-  100% { transform: rotate(0deg); }
-}
-
-/* Tail Animation */
-
-.tail {
-  animation: tailWave 4s ease-in-out infinite;
-}
-
-@keyframes tailWave {
   0% { transform: rotate(0deg); }
   50% { transform: rotate(6deg); }
   100% { transform: rotate(0deg); }
@@ -132,16 +117,20 @@ body::before {
 
 .flame {
   fill: url(#fireGradient);
-  transform-box: fill-box;
   transform-origin: left center;
-  animation: flameFlicker 1.5s infinite alternate ease-in-out;
+  animation: flameFlicker 2s infinite alternate;
 }
 
 @keyframes flameFlicker {
-  0% { transform: scaleX(1); }
-  100% { transform: scaleX(1.15); }
+  0% {
+    transform: scaleX(1);
+    filter: drop-shadow(0 0 30px #ff4500);
+  }
+  100% {
+    transform: scaleX(1.15);
+    filter: drop-shadow(0 0 40px #ff0000);
+  }
 }
-
 
 /* TEXT */
 
@@ -389,7 +378,6 @@ footer {
 html {
   scroll-behavior: smooth;
 }
-
 
 
 
