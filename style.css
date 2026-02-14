@@ -96,6 +96,14 @@ body::before {
   fill: #000000;
 }
 
+/* Real visible red edge */
+  stroke: #ff2a00;
+  stroke-width: 3;
+
+  /* Soft outer glow effect */
+  paint-order: stroke;
+
+
 /* Wing Animation */
 
 .wing-left {
@@ -382,5 +390,6 @@ footer {
     color: #ff4500;
     font-weight: 700;
 }
+
 
 
