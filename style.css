@@ -76,15 +76,10 @@ body::before {
   max-width: 90vw;
   height: auto;
   z-index: 1;
-
-  /* Apply glow ONLY once here */
-  filter: drop-shadow(0 0 12px #ff4500)
-          drop-shadow(0 0 25px #ff0000);
-
   will-change: transform;
 }
 
-/* Dragon Base Fill */
+/* ================= DRAGON BASE ================= */
 
 .wing-left,
 .wing-right,
@@ -94,17 +89,12 @@ body::before {
 .tail,
 .horn {
   fill: #000000;
-}
-
-/* Real visible red edge */
   stroke: #ff2a00;
   stroke-width: 3;
-
-  /* Soft outer glow effect */
   paint-order: stroke;
+}
 
-
-/* Wing Animation */
+/* ================= WING ANIMATION ================= */
 
 .wing-left {
   transform-origin: 380px 250px;
@@ -126,6 +116,36 @@ body::before {
   0% { transform: rotate(0deg); }
   50% { transform: rotate(6deg); }
   100% { transform: rotate(0deg); }
+}
+
+/* ================= TAIL ANIMATION ================= */
+
+.tail {
+  transform-origin: 400px 300px;
+  animation: tailWave 4s ease-in-out infinite;
+}
+
+@keyframes tailWave {
+  0% { transform: rotate(0deg); }
+  50% { transform: rotate(4deg); }
+  100% { transform: rotate(0deg); }
+}
+
+/* ================= FLAME ================= */
+
+.flame {
+  fill: url(#fireGradient);
+  transform-origin: left center;
+  animation: flameFlicker 2s infinite alternate;
+}
+
+@keyframes flameFlicker {
+  0% {
+    transform: scaleX(1);
+  }
+  100% {
+    transform: scaleX(1.15);
+  }
 }
 
 
@@ -390,6 +410,7 @@ footer {
     color: #ff4500;
     font-weight: 700;
 }
+
 
 
 
