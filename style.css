@@ -71,13 +71,20 @@ body::before {
   position: absolute;
   top: -150px;
   left: 50%;
-  transform: translateX(-50%);
+  transform: translateX(-50%) translateZ(0);
   width: 700px;
+  max-width: 90vw;
+  height: auto;
   z-index: 1;
-    overflow: visible;
+
+  /* Apply glow ONLY once here */
+  filter: drop-shadow(0 0 12px #ff4500)
+          drop-shadow(0 0 25px #ff0000);
+
+  will-change: transform;
 }
 
-/* Dragon Base Look */
+/* Dragon Base Fill */
 
 .wing-left,
 .wing-right,
@@ -87,11 +94,6 @@ body::before {
 .tail,
 .horn {
   fill: #000000;
-  filter: drop-shadow(0 0 25px #ff0000);
-}
-.dragon-svg path {
-    filter: drop-shadow(0 0 12px #ff4500)
-            drop-shadow(0 0 25px #ff0000);
 }
 
 /* Wing Animation */
@@ -117,6 +119,7 @@ body::before {
   50% { transform: rotate(6deg); }
   100% { transform: rotate(0deg); }
 }
+
 
 /* Flame */
 
@@ -379,4 +382,5 @@ footer {
     color: #ff4500;
     font-weight: 700;
 }
+
 
