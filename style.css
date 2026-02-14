@@ -58,7 +58,7 @@ body::before {
   align-items: center;
   text-align: center;
   position: relative;
-  overflow: hidden;
+  overflow: visible;
 }
 
 .logo-container {
@@ -74,6 +74,7 @@ body::before {
   transform: translateX(-50%);
   width: 700px;
   z-index: 1;
+    overflow: visible;
 }
 
 /* Dragon Base Look */
@@ -374,3 +375,4 @@ footer {
     color: #ff4500;
     font-weight: 700;
 }
+
